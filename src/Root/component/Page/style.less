@@ -1,0 +1,23 @@
+#page{
+    transform: translateY(60px);
+    width: 300px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-around;
+    span{
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        border: 1px solid #089db0;
+        text-align: center;
+        box-sizing: border-box;
+        line-height: 25px;
+    }
+    span:not(.more){
+        cursor: pointer;
+    }
+    .current{
+        background-color: #089db0;
+        border: none;
+    }
+}

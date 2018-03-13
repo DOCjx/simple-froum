@@ -1,0 +1,87 @@
+.login{
+    position: fixed;
+    top: 200px;
+    right: 60px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 6px 10px 2px rgba(0, 0, 0, 0.14), 0 6px 20px 5px rgba(0, 0, 0, 0.12), 0 8px 6px -5px rgba(0, 0, 0, 0.2);
+    &:hover .form{
+        opacity: 1;
+    }
+    .form{
+        position: relative;
+        left: -150px;
+        opacity: 0;
+        transition: all .6s;
+        .form-con{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            input{
+                margin-bottom: 6px;
+                padding: 3px;
+                text-align: center;
+            }
+            button{
+                width: 50px;
+                background-color: #089db0;
+                border: none;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+            span{
+                display: flex;
+                width: 150px;
+                justify-content: space-around;
+            }
+        }
+    }
+}
+.off-line{
+    &:before{
+        content: "+";
+        position: absolute;
+        display: inline-block;
+        font-size: 26px;
+        top: 5px;
+        left: 15px;
+    }
+}
+.on-line{
+    line-height: 50px;
+    text-align: center;
+    #logout{
+        font-size: 33px;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+    &:hover .form{
+        opacity: 1;
+    }
+    .form{
+        position: absolute;
+        left: -200px;
+        top: 0;
+        opacity: 0;
+        transition: all .6s;
+        border: 1px solid #089db0;
+        padding: 10px;
+        .user-info{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+        }
+        button{
+            background-color: #089db0;
+            border: none;
+            cursor: pointer;
+        }
+    }
+}

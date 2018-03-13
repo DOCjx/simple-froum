@@ -1,0 +1,2 @@
+2018-03-12T19:11:02.811+0800 I CONTROL  [main] Trying to install Windows service 'forum-mongodb'
+2018-03-12T19:11:02.811+0800 I CONTROL  [main] Error connecting to the Service Control Manager: 拒绝访问。 (5)
