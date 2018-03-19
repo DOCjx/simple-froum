@@ -1,7 +1,13 @@
+import config from '../../common/config';
+const {rootModel} = config;
+
 export default (state = {
     namespace: "Root",
-    model: "web",
-    userInfo: {}
+    model: rootModel,
+    userInfo: {
+        userId: "",
+        pwd: "",
+    }
 }, {type, payload}) => {
 
     const {namespace} = state;
@@ -19,3 +25,9 @@ export default (state = {
             return state;
     }
 };
+
+        // userId: "123",
+        // pwd: "123",
+        // email: "l@gmail.com",
+        // role: "auth",
+        // isOnline: true

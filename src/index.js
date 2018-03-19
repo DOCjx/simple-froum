@@ -6,6 +6,10 @@ import { createStore } from 'redux';
 import App from './App';
 import UI from './UI';
 
+import fetch from './common/fetch';
+import config from './common/config';
+const {rootModel} = config;
+
 /* eslint-disable no-underscore-dangle */
 let store = createStore(
     App,
@@ -18,3 +22,17 @@ render(
     </Provider>,
     document.getElementById('root')
 );
+const appInit = async () => {
+    const articles = await fetch(`articles/${rootModel}`);
+    store.dispatch({
+        type:"List/LOAD",
+        payload: {
+            articles: articles.slice(0, 5)
+        }
+    });
+    store.dispatch({
+        type:"Page/SHOW",
+        payload: articles.length
+    });
+};
+appInit();

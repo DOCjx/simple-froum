@@ -3,7 +3,7 @@ import './style.less';
 import _ from 'lodash';
 
 export default ({Login, Active, onModelChange, onInputChange, onLogOut, onGoAdmin}) => {
-    const {userId, pwd, isOnline} = Login;
+    const {userId, pwd, isOnline, email, role} = Login;
     return (
         <div className = {isOnline ? "login on-line" : "login off-line"}>
             {   isOnline ? <span onClick = {onLogOut} id = "logout">Q</span> : "" }
@@ -12,7 +12,7 @@ export default ({Login, Active, onModelChange, onInputChange, onLogOut, onGoAdmi
                         <div className = "user-info">
                             <div>用户名：{userId}</div>
                             <div><span>园龄：2年</span><span style = {{margin: "10px"}}>文章：53</span></div>
-                            <button onClick = {_.partial(onGoAdmin, {model: "admin", userId, pwd})}>进入后台</button>
+                            <button onClick = {_.partial(onGoAdmin, {model: "admin", userId, pwd, email, role})}>进入后台</button>
                         </div>
                     :
                         <div className = "form-con">

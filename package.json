@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack && node server.js",
-    "dev": "webpack-dev-server --inline --host 0.0.0.0 --config webpack.dev.config.js && net start forum-mongodb"
+    "dev": "webpack-dev-server --inline --host 0.0.0.0 --config webpack.dev.config.js && net start forum-mongodb",
+    "server": "nodemon --watch /src/** --exec \"webpack && node server.js\""
   },
   "author": "DOCer",
   "license": "ISC",
   "dependencies": {
+    "babel-eslint": "^8.2.2",
     "boom": "^7.2.0",
     "css-loader": "^0.28.7",
     "gulp-sftp": "^0.1.5",
@@ -22,6 +24,7 @@
     "less-loader": "^4.0.5",
     "mongojs": "^2.5.0",
     "node-uuid": "^1.4.8",
+    "nodemon": "^1.12.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",

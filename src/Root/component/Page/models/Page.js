@@ -17,10 +17,12 @@ export default (state = {
                 current: payload,
                 pages
             };
-        default:
-            nextState.total = 38;
-            nextState.pages = Math.ceil(nextState.total / 5);
+        case `${namespace}/SHOW`:
+            nextState.total = payload;
+            nextState.pages = Math.ceil(payload / 5);
             nextState.current = 1;
             return nextState;
+        default:
+            return state;
     }
 };

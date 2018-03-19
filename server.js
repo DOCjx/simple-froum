@@ -7,9 +7,12 @@ const server = new Hapi.Server();
 server.connection({ port: 8000, host: 'localhost' });
 
 //连接数据库
-server.app.db = mongojs('hapi-rest-mongo', ['forum']);
+server.app.db = mongojs('forum', ['articles', 'comments', 'users']);
+
 server.register([
-    require('./routes/articles')
+    require('./src/services/articles'),
+    require('./src/services/comments'),
+    require('./src/services/users')
 ], (err) => {
     if (err) {
       throw err;
@@ -36,22 +39,22 @@ server.register(require('vision'), (err) => {
             html: require('handlebars')
         },
         relativeTo: __dirname,
-        path: 'views'
+        path: 'public'
     });
     server.route({
         method: 'GET',
         path: '/',
         handler: function (request, reply) {
-            reply('hello?');
+            reply.view('index.html');
         }
     });
-    server.route({
-        method: 'GET',
-        path: '/{controller}/{action}.html',
-        handler: function (request, reply) {
-            reply.view(request.params.controller+'/'+request.params.action+'.html');
-        }
-    });
+    // server.route({
+    //     method: 'GET',
+    //     path: '/{controller}/{action}.html',
+    //     handler: function (request, reply) {
+    //         reply.view(request.params.controller+'/'+request.params.action+'.html');
+    //     }
+    // });
 });
 
 server.start((err) => {

@@ -26,5 +26,5 @@ module.exports = {
             exclude: /^node_modules$/,
             loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]'
         }]
-    }
+    },
 }

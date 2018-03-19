@@ -3,7 +3,7 @@ import './style.less';
 import _ from 'lodash';
 
 export default ({Comment, userInfo, articleId, onValueChange, onSend}) => {
-    const {comments, sendValue} = Comment;
+    const {comments, sendValue, model} = Comment;
     const {userId} = userInfo;
     return (
         <section id = "comment">
@@ -19,7 +19,7 @@ export default ({Comment, userInfo, articleId, onValueChange, onSend}) => {
             </section>
             <div id = "comment-send">
                 <input value = {sendValue} onChange = {onValueChange} type="text"/>
-                <button onClick = {_.partial(onSend, {articleId, userId, sendValue})}>发送</button>
+                <button onClick = {_.partial(onSend, {articleId, userId, sendValue, model})}>发送</button>
             </div>
         </section>
     );

@@ -16,6 +16,8 @@ export default (state = {
                 isOnline,
                 userId: isOnline ? payload.userId : "",
                 pwd: isOnline ? payload.pwd : "",
+                email: isOnline ? payload.email : "",
+                role: isOnline ? payload.role : "",
             };
         case `${namespace}/CHANGEVALUE`:
             const {field, value} = payload;
